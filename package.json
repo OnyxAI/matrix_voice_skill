@@ -3,7 +3,7 @@
   "raw": "matrix_voice_skill",
   "version": "1.0.0",
   "description":"Control led of Matrix voice when speaking",
-  "packages":[],
+  "packages":["matrix_lite"],
   "dependencies": [],
   "author":"Cassim Khouani",
   "license": "Creative Commons 3.0 France",
