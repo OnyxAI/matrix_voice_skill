@@ -39,7 +39,7 @@ class Matrix_VoiceSkill(OnyxSkill):
 
     def handle_detect_finish(self, message):
         try:
-            let.set()
+            led.set()
         except:
             LOGGER.error("Impossible to set light to nothing")
             pass
@@ -48,7 +48,7 @@ class Matrix_VoiceSkill(OnyxSkill):
         try:
             led.set('red')
             time.sleep(5)
-            let.set()
+            led.set()
         except:
             LOGGER.error("Impossible to set light to red")
             pass
