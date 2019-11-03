@@ -3,6 +3,8 @@ from os.path import dirname, join
 from onyx.skills.core import OnyxSkill
 from onyx.util.log import getLogger
 
+import time
+
 
 __author__ = ''
 
@@ -24,6 +26,7 @@ class Matrix_VoiceSkill(OnyxSkill):
 
         self.emitter.on('onyx_detect', self.handle_detect)
         self.emitter.on('onyx_detect_finish', self.handle_detect_finish)
+        self.emitter.on('onyx_recognizer:utterance', self.handle_detect_finish)
         self.emitter.on('onyx_detect_error', self.handle_detect_error)
         self.emitter.on('intent_failure', self.handle_detect_error)
 
@@ -31,23 +34,23 @@ class Matrix_VoiceSkill(OnyxSkill):
         try:
             led.set('blue')
         except:
-            LOGGER.error("Impossible to set light")
+            LOGGER.error("Impossible to set light to blue")
             pass
 
     def handle_detect_finish(self, message):
         try:
             let.set()
         except:
-            LOGGER.error("Impossible to set light")
+            LOGGER.error("Impossible to set light to nothing")
             pass
 
     def handle_detect_error(self, message):
         try:
             led.set('red')
-            time.sleep(2)
+            time.sleep(5)
             let.set()
         except:
-            LOGGER.error("Impossible to set light")
+            LOGGER.error("Impossible to set light to red")
             pass
 
     def stop(self):
